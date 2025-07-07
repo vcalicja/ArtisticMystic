@@ -53,7 +53,6 @@ export default function Contact() {
       <div className="container mx-auto max-w-2xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-light mb-4">Contact</h2>
-          <div className="w-16 h-px bg-black mx-auto"></div>
         </div>
         
         <div className="space-y-8">
