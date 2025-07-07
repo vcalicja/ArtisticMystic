@@ -1,37 +1,30 @@
-import { useState, useEffect } from "react";
-import { loadSiteConfig, type SiteConfig } from "@/lib/contentManager";
-
 export default function Hero() {
-  const [config, setConfig] = useState<SiteConfig | null>(null);
-
-  useEffect(() => {
-    loadSiteConfig().then(setConfig);
-  }, []);
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src={config?.hero.videoUrl || "/assets/Video Project_1751915436061.mp4"} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-      </div>
+    <>
+      {/* Video Section */}
+      <section id="home" className="relative h-screen overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/assets/Video Project_1751915436061.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
       
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto animate-fade-in">
-        <p className="text-base md:text-lg text-white max-w-3xl mx-auto leading-relaxed font-light tracking-wider" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.7)'}}>
-          {config?.hero.text || "Abstract art comes from what it inspires within you- your feelings, thoughts, and personal response. The space between the artwork and your experience is where the art truly lives."}
-        </p>
-      </div>
-    </section>
+      {/* Text Section Below Video */}
+      <section className="py-16 px-6 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <p className="text-lg md:text-xl leading-relaxed font-light text-gray-800 tracking-wide">
+            Abstract art comes from what it inspires within you- your feelings, thoughts, and personal response. The space between the artwork and your experience is where the art truly lives.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
