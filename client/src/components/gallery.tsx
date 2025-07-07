@@ -99,7 +99,7 @@ export default function Gallery() {
             <img 
               src={selectedArtwork.imageUrl} 
               alt={selectedArtwork.title}
-              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              className="max-w-full max-h-[90vh] object-contain shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
           </div>
