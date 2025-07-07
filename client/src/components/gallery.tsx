@@ -82,27 +82,26 @@ export default function Gallery() {
       {/* Lightbox */}
       {selectedArtwork && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-95 lightbox z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{
+            backdropFilter: 'blur(20px)',
+            backgroundColor: 'rgba(255, 255, 255, 0.1)'
+          }}
           onClick={() => setSelectedArtwork(null)}
         >
-          <div className="relative max-w-4xl max-h-full">
+          <div className="relative max-w-5xl max-h-full">
             <button 
               onClick={() => setSelectedArtwork(null)}
-              className="absolute top-4 right-4 text-white text-2xl hover:opacity-70 transition-opacity z-10"
+              className="absolute top-4 right-4 text-black bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center text-xl hover:bg-opacity-100 transition-all duration-300 z-10"
             >
               ×
             </button>
             <img 
               src={selectedArtwork.imageUrl} 
               alt={selectedArtwork.title}
-              className="max-w-full max-h-[90vh] object-contain"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
             />
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="text-xl font-medium">{selectedArtwork.title}</h3>
-              <p className="text-sm opacity-75 mt-1">
-                {selectedArtwork.description}, {selectedArtwork.year}
-              </p>
-            </div>
           </div>
         </div>
       )}

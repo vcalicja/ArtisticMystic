@@ -24,8 +24,8 @@ export default function Hero() {
           <span className="block font-semibold">Art</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-8 leading-relaxed">
-          Where space opens the mind and simplicity reveals clarity.
+        <p className="text-lg md:text-xl text-white max-w-3xl mx-auto mb-8 leading-relaxed">
+          Abstract art isn't about spoon-feeding you meaning. It's about handing you the keys and stepping back. The space it creates invites you to decide what it means, what it feels like. That's where the art truly lives.
         </p>
         
         <p className="text-base text-gray-200">

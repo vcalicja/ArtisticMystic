@@ -60,6 +60,7 @@ export default function Contact() {
           <div className="text-center space-y-4">
             <p className="text-lg">For inquiries about commissioned work or exhibitions</p>
             <div className="space-y-2">
+              <p className="text-gray-600">theelementsart@gmail.com</p>
               <p className="text-gray-600">Vienna, Austria</p>
             </div>
           </div>
