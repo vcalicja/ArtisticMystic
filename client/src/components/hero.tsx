@@ -19,7 +19,7 @@ export default function Hero() {
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto animate-fade-in">
-        <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base md:text-lg text-white max-w-3xl mx-auto leading-relaxed font-light tracking-wide">
           Abstract art comes from what it inspires within you- your feelings, thoughts, and personal response. The space between the artwork and your experience is where the art truly lives.
         </p>
       </div>
