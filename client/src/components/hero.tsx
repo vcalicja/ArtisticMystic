@@ -1,31 +1,36 @@
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
-      <div className="text-center max-w-4xl mx-auto animate-fade-in">
-        {/* Art Keywords */}
-        <div className="mystical-text text-gray-600 text-sm md:text-base mb-12 uppercase tracking-wider">
-          ABSTRACT . MINIMAL . FLOW . FORM . EXPRESSION . VIENNA . CONTEMPORARY . ART
-        </div>
-        
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">
+    <section id="home" className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/assets/copy_FBAC72AC-E0DA-4925-956D-30CCD324274D_1751914658018.MOV" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto animate-fade-in">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight text-white">
           The Elements
           <span className="block font-semibold">Art</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+        <p className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-8 leading-relaxed">
           Where space opens the mind and simplicity reveals clarity.
         </p>
         
-        <p className="text-base text-gray-500 mb-12">
+        <p className="text-base text-gray-200">
           Vienna, Austria
         </p>
-        
-        <a 
-          href="#gallery" 
-          className="inline-block border-2 border-black px-8 py-3 text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300"
-        >
-          View Gallery
-        </a>
       </div>
     </section>
   );
