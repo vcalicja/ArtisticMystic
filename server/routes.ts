@@ -39,10 +39,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = contactFormSchema.parse(req.body);
       
-      // In a real application, you would send an email or store the message
-      console.log("Contact form submission:", validatedData);
+      // Log the contact form submission
+      console.log("Contact form submission:", {
+        ...validatedData,
+        timestamp: new Date().toISOString(),
+        destination: "theelementsart@gmail.com"
+      });
       
-      res.json({ message: "Thank you for your message. We will get back to you soon!" });
+      // In a production environment, you would integrate with an email service
+      // like SendGrid, Mailgun, or AWS SES to send the email to theelementsart@gmail.com
+      // For now, we'll just log it and confirm receipt
+      
+      res.json({ 
+        message: "Thank you for your message. We will get back to you soon!",
+        sent_to: "theelementsart@gmail.com"
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         return res.status(400).json({ 

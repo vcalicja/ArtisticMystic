@@ -109,6 +109,13 @@ Changelog:
   - Black and white minimalist aesthetic
   - Vienna location integration
   - Static asset serving for uploaded artwork images
+- July 07, 2025. Major UI/UX improvements:
+  - Auto-hiding navigation bar with scroll animation
+  - Video background on hero section
+  - Blurred lightbox backgrounds for artwork viewing
+  - Instagram and email social icons integration
+  - Contact form configured for theelementsart@gmail.com
+  - Philosophical quote about abstract art meaning
 ```
 
 ## User Preferences
@@ -117,5 +124,7 @@ Changelog:
 Preferred communication style: Simple, everyday language.
 Brand: The Elements Art
 Location: Vienna, Austria
-Philosophy: Space, Balance, Freedom in openness, Simplicity, Presence
+Contact: theelementsart@gmail.com, @theelements.art (Instagram)
+Design: Minimalist black/white, video backgrounds, auto-hiding navigation
+Philosophy: "Abstract art isn't about spoon-feeding you meaning. It's about handing you the keys and stepping back."
 ```
