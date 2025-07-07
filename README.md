@@ -1,123 +1,193 @@
-# The Elements Art Portfolio
+# The Elements Art - Artist Portfolio
 
-A minimalist art portfolio website showcasing abstract artwork with a clean, modern design.
+A minimalist abstract art portfolio website for The Elements Art, Vienna, Austria.
 
-## 🎨 Content Management
+## 🎨 About
 
-### Easy Content Updates
+This is a modern, minimalist portfolio showcasing abstract artwork with a focus on space, balance, simplicity, and presence. The site features a clean black and white design with video backgrounds and smooth animations.
 
-All content is managed through simple JSON configuration files:
+## 🚀 Quick Deploy
 
-- **Main Content**: `content/config.json` - Update artwork, text, and contact info
-- **Images**: `public/images/` - Add new artwork images here
-- **Video**: `public/videos/` - Replace hero video
+### Deploy to Netlify (Recommended)
 
-### Updating Your Gallery
+1. **Fork this repository** on GitHub
+2. **Connect to Netlify:**
+   - Go to [netlify.com](https://netlify.com)
+   - Click "Add new site" → "Import an existing project"
+   - Connect your GitHub and select this repository
+   - Netlify will auto-deploy using the `netlify.toml` configuration
 
-To add or change artwork:
+3. **Your site will be live!** Netlify provides a URL like `https://your-site-name.netlify.app`
 
-1. **Add new images** to `public/images/artwork/`
-2. **Update `content/config.json`** with new artwork details:
-   ```json
-   {
-     "id": 4,
-     "title": "YOUR ARTWORK TITLE",
-     "medium": "Mixed technique",
-     "year": 2025,
-     "description": "Available for sale",
-     "imageUrl": "/images/artwork/your-image.jpg",
-     "available": true,
-     "featured": true
-   }
-   ```
+### Deploy to Vercel
 
-### Updating Text Content
+1. **Fork this repository** on GitHub
+2. **Connect to Vercel:**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Add New" → "Project"
+   - Import your GitHub repository
+   - Vercel will auto-deploy using the `vercel.json` configuration
 
-**Hero Section Text**: Edit `hero.text` in `content/config.json`
+## 🛠️ Development
 
-**Contact Information**: Update the `contact` section in `content/config.json`
+### Prerequisites
+- Node.js 18+ 
+- npm
 
-## 🚀 Deployment
-
-### Netlify Deployment
-
-1. **Connect your repository** to Netlify
-2. **Build settings**:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-3. **Auto-deploy**: Enabled by default when you push to main branch
-
-### Vercel Deployment
-
-1. **Connect your repository** to Vercel
-2. **Framework**: Detected automatically (Vite + React)
-3. **Build settings**: Auto-configured
-4. **Auto-deploy**: Enabled by default
-
-## 🔧 Development
-
+### Local Development
 ```bash
 # Install dependencies
 npm install
 
-# Run development server
+# Start development server
 npm run dev
 
 # Build for production
 npm run build
-
-# Preview production build
-npm run preview
 ```
+
+### Build Test
+```bash
+# Test the build process
+./deploy.sh
+```
+
+## 📝 Content Management
+
+All content is managed through the `public/content/config.json` file:
+
+```json
+{
+  "site": {
+    "title": "The Elements Art",
+    "description": "Abstract art portfolio...",
+    "contact": {
+      "email": "theelementsart@gmail.com",
+      "instagram": "theelements.art",
+      "location": "Vienna, Austria"
+    }
+  },
+  "hero": {
+    "text": "Your philosophical quote here...",
+    "videoUrl": "/assets/your-video.mp4"
+  },
+  "artworks": [
+    {
+      "id": 1,
+      "title": "ARTWORK TITLE",
+      "medium": "Mixed technique",
+      "year": 2025,
+      "description": "Available for sale",
+      "imageUrl": "/assets/artwork-image.jpg",
+      "available": true,
+      "featured": true
+    }
+  ]
+}
+```
+
+### Adding New Artwork
+
+1. **Upload image** to `public/assets/`
+2. **Add artwork entry** to `public/content/config.json`
+3. **Push to GitHub** - site updates automatically
+
+### Updating Content
+
+- **Hero quote**: Edit `hero.text` in config.json
+- **Contact info**: Edit `site.contact` in config.json
+- **Artwork availability**: Change `available: true/false` in config.json
+
+## 🎯 Features
+
+- **Minimalist Design**: Clean black and white aesthetic
+- **Video Background**: Immersive hero section
+- **Responsive**: Works on all devices
+- **Lightbox Gallery**: Click artwork to view details
+- **Auto-hiding Navigation**: Gary Komarin-inspired navigation
+- **Contact Form**: Integrated contact system
+- **SEO Optimized**: Meta tags and structured data
+
+## 🔧 Technical Stack
+
+- **Frontend**: React + TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Build**: Vite
+- **Deployment**: Netlify/Vercel
+- **Content**: JSON-based CMS
 
 ## 📁 Project Structure
 
 ```
-├── content/
-│   └── config.json          # Content management
+├── client/                 # Frontend React app
+│   ├── src/
+│   │   ├── components/    # UI components
+│   │   ├── pages/         # Page components
+│   │   └── lib/           # Utilities
+│   └── index.html
 ├── public/
-│   ├── images/
-│   │   └── artwork/         # Artwork images
-│   └── videos/              # Hero video
-├── client/src/
-│   ├── components/          # React components
-│   ├── pages/              # Page components
-│   └── lib/                # Utilities
-└── server/                 # Backend (development only)
+│   ├── content/           # Content management
+│   └── assets/            # Images, videos
+├── server/                # Backend (development only)
+├── netlify.toml           # Netlify configuration
+├── vercel.json            # Vercel configuration
+└── deploy.sh              # Build script
 ```
 
-## 📝 Quick Updates Guide
+## 🌐 Deployment Configuration
 
-### Adding New Artwork
-1. Save image to `public/images/artwork/`
-2. Add entry to `content/config.json`
-3. Deploy (automatic on Netlify/Vercel)
+### Netlify Settings (netlify.toml)
+```toml
+[build]
+  base = "."
+  command = "npm install && npx vite build"
+  publish = "dist/public"
+```
 
-### Changing Hero Video
-1. Replace file in `public/videos/`
-2. Update `videoUrl` in `content/config.json`
-3. Deploy
+### Vercel Settings (vercel.json)
+```json
+{
+  "buildCommand": "npx vite build",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install"
+}
+```
 
-### Updating Text
-1. Edit `content/config.json`
-2. Deploy
+## 🔍 Troubleshooting
 
-## 🎯 Key Features
+### Build Issues
+1. **"Could not resolve entry module"**
+   - Ensure `client/index.html` exists
+   - Check `netlify.toml` and `vercel.json` configuration
 
-- **Responsive design** - Works on all devices
-- **Auto-hiding navigation** - Appears when scrolling
-- **Lightbox gallery** - Full-screen artwork viewing
-- **Contact form** - Direct email integration
-- **SEO optimized** - Better search visibility
-- **Fast loading** - Optimized images and code
+2. **Missing dependencies**
+   - Run `npm install` before building
+   - Check `package.json` for missing packages
 
-## 🔒 Environment Variables
+3. **Build fails locally**
+   - Run `./deploy.sh` to test build process
+   - Check console for specific errors
 
-For production deployment, set these environment variables:
-
-- `VITE_CONTACT_EMAIL`: Your contact email (optional, defaults to config)
-- `VITE_INSTAGRAM_HANDLE`: Your Instagram handle (optional, defaults to config)
+### Common Fixes
+- Update build command to: `npm install && npx vite build`
+- Set publish directory to: `dist/public`
+- Ensure all files are committed to GitHub
 
 ## 📞 Support
 
-For technical support or updates, refer to this README or contact your developer.
+For deployment issues:
+1. Check build logs in Netlify/Vercel dashboard
+2. Verify all files are in GitHub repository
+3. Test build locally with `./deploy.sh`
+
+## 🎨 Artist Information
+
+**The Elements Art**
+- Location: Vienna, Austria
+- Email: theelementsart@gmail.com
+- Instagram: @theelements.art
+- Philosophy: "Abstract art comes from what it inspires within you - your feelings, thoughts, and personal response. The space between the artwork and your experience is where the art truly lives."
+
+---
+
+Built with ❤️ for The Elements Art
