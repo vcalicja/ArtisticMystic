@@ -126,5 +126,6 @@ Brand: The Elements Art
 Location: Vienna, Austria
 Contact: theelementsart@gmail.com, @theelements.art (Instagram)
 Design: Minimalist black/white, video backgrounds, auto-hiding navigation
-Philosophy: "Abstract art isn't about spoon-feeding you meaning. It's about handing you the keys and stepping back."
+Philosophy: "Abstract art comes from what it inspires within you- your feelings, thoughts, and personal response. The space between the artwork and your experience is where the art truly lives."
+Artwork: EARTH + FIRE (2025, available), WATER + AIR (2025, available), WATER + EARTH (2024, sold)
 ```

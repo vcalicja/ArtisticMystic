@@ -20,7 +20,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto animate-fade-in">
         <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
-          Abstract art isn't about spoon-feeding you meaning. It's about handing you the keys and stepping back. The space it creates invites you to decide what it means, what it feels like. That's where the art truly lives.
+          Abstract art comes from what it inspires within you- your feelings, thoughts, and personal response. The space between the artwork and your experience is where the art truly lives.
         </p>
       </div>
     </section>

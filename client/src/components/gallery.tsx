@@ -71,7 +71,10 @@ export default function Gallery() {
               <div className="mt-4">
                 <h3 className="font-medium text-lg">{artwork.title}</h3>
                 <p className="text-gray-600 text-sm mt-1">
-                  {artwork.description}, {artwork.year}
+                  {artwork.medium}, {artwork.year}
+                </p>
+                <p className="text-gray-500 text-sm mt-1">
+                  {artwork.description.includes('sold') ? 'SOLD' : 'Available for sale'}
                 </p>
               </div>
             </div>
