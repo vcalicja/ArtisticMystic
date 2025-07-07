@@ -2,9 +2,9 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
       <div className="text-center max-w-4xl mx-auto animate-fade-in">
-        {/* Philosophy Keywords */}
+        {/* Art Keywords */}
         <div className="mystical-text text-gray-600 text-sm md:text-base mb-12 uppercase tracking-wider">
-          SPACE . BALANCE . FREEDOM . SIMPLICITY . PRESENCE . ESSENCE . CLARITY . BEING . MOMENT . OPENNESS
+          ABSTRACT . MINIMAL . FLOW . FORM . EXPRESSION . VIENNA . CONTEMPORARY . ART
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-tight">

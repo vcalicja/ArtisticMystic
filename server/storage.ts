@@ -29,24 +29,24 @@ export class MemStorage implements IStorage {
     const sampleArtworks: Omit<Artwork, 'id'>[] = [
       {
         title: "Elemental Flow I",
-        description: "Acrylic on canvas",
-        medium: "Acrylic",
+        description: "Mixed technique",
+        medium: "Mixed technique",
         year: 2024,
         imageUrl: "/assets/IMG_0200_1751908631019.jpeg",
         featured: true
       },
       {
         title: "Elemental Flow II",
-        description: "Acrylic on canvas",
-        medium: "Acrylic",
+        description: "Mixed technique",
+        medium: "Mixed technique",
         year: 2024,
         imageUrl: "/assets/D5FD6A96-D987-444B-9AAB-0E4738A82DEF_1751908631020.jpeg",
         featured: true
       },
       {
         title: "Elemental Flow III",
-        description: "Acrylic on canvas",
-        medium: "Acrylic",
+        description: "Mixed technique",
+        medium: "Mixed technique",
         year: 2024,
         imageUrl: "/assets/1CD865CC-676B-45A1-92C2-563AEA19D704_1751908631020.jpeg",
         featured: true

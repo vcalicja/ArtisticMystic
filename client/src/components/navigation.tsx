@@ -18,9 +18,6 @@ export default function Navigation() {
             <a href="#gallery" className="hover:opacity-70 transition-opacity">
               Gallery
             </a>
-            <a href="#about" className="hover:opacity-70 transition-opacity">
-              Philosophy
-            </a>
             <a href="#contact" className="hover:opacity-70 transition-opacity">
               Contact
             </a>
@@ -46,13 +43,6 @@ export default function Navigation() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Gallery
-              </a>
-              <a 
-                href="#about" 
-                className="hover:opacity-70 transition-opacity"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Philosophy
               </a>
               <a 
                 href="#contact" 

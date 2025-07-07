@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import Hero from "@/components/hero";
 import Gallery from "@/components/gallery";
-import About from "@/components/about";
 import Contact from "@/components/contact";
 import Lightbox from "@/components/lightbox";
 
@@ -38,7 +37,6 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Gallery />
-      <About />
       <Contact />
       <footer className="py-8 px-6 border-t border-gray-200">
         <div className="container mx-auto max-w-6xl">

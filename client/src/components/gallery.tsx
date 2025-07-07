@@ -61,11 +61,11 @@ export default function Gallery() {
               className="gallery-item cursor-pointer"
               onClick={() => setSelectedArtwork(artwork)}
             >
-              <div className="aspect-square bg-gray-100 overflow-hidden">
+              <div className="bg-gray-100 overflow-hidden">
                 <img 
                   src={artwork.imageUrl} 
                   alt={artwork.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="mt-4">
