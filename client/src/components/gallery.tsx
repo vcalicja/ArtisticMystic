@@ -92,7 +92,7 @@ export default function Gallery() {
           <div className="relative max-w-5xl max-h-full">
             <button 
               onClick={() => setSelectedArtwork(null)}
-              className="absolute top-4 right-4 text-black bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center text-xl hover:bg-opacity-100 transition-all duration-300 z-10"
+              className="absolute top-4 right-4 text-white text-3xl hover:opacity-70 transition-all duration-300 z-10"
             >
               ×
             </button>

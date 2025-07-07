@@ -28,24 +28,24 @@ export class MemStorage implements IStorage {
   private initializeArtworks() {
     const sampleArtworks: Omit<Artwork, 'id'>[] = [
       {
-        title: "Elemental Flow II",
-        description: "Mixed technique",
+        title: "EARTH + FIRE",
+        description: "Mixed technique, available, price upon request",
         medium: "Mixed technique",
-        year: 2024,
+        year: 2025,
         imageUrl: "/assets/D5FD6A96-D987-444B-9AAB-0E4738A82DEF_1751908631020.jpeg",
         featured: true
       },
       {
-        title: "Elemental Flow III",
-        description: "Mixed technique",
+        title: "WATER + AIR",
+        description: "Mixed technique, available, price upon request",
         medium: "Mixed technique",
-        year: 2024,
+        year: 2025,
         imageUrl: "/assets/1CD865CC-676B-45A1-92C2-563AEA19D704_1751908631020.jpeg",
         featured: true
       },
       {
-        title: "Elemental Flow I",
-        description: "Mixed technique",
+        title: "WATER + EARTH",
+        description: "Mixed technique, sold",
         medium: "Mixed technique",
         year: 2024,
         imageUrl: "/assets/2675AF41-D9ED-4CA2-BE6B-6BCCCC67B3F2_1751915436060.png",
