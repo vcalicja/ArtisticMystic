@@ -28,52 +28,28 @@ export class MemStorage implements IStorage {
   private initializeArtworks() {
     const sampleArtworks: Omit<Artwork, 'id'>[] = [
       {
-        title: "Ethereal Flow",
-        description: "Mixed media on canvas",
-        medium: "Mixed media",
-        year: 2024,
-        imageUrl: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
-        featured: true
-      },
-      {
-        title: "Void Essence",
+        title: "Elemental Flow I",
         description: "Acrylic on canvas",
         medium: "Acrylic",
         year: 2024,
-        imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
+        imageUrl: "/assets/IMG_0200_1751908631019.jpeg",
         featured: true
       },
       {
-        title: "Transcendent Forms",
-        description: "Oil on canvas",
-        medium: "Oil",
+        title: "Elemental Flow II",
+        description: "Acrylic on canvas",
+        medium: "Acrylic",
         year: 2024,
-        imageUrl: "https://images.unsplash.com/photo-1549887534-1541e9326642?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
-        featured: false
+        imageUrl: "/assets/D5FD6A96-D987-444B-9AAB-0E4738A82DEF_1751908631020.jpeg",
+        featured: true
       },
       {
-        title: "Infinite Dimension",
-        description: "Mixed media",
-        medium: "Mixed media",
+        title: "Elemental Flow III",
+        description: "Acrylic on canvas",
+        medium: "Acrylic",
         year: 2024,
-        imageUrl: "https://images.unsplash.com/photo-1578321272176-b7bbc0679853?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
-        featured: false
-      },
-      {
-        title: "Sublime Consciousness",
-        description: "Charcoal on paper",
-        medium: "Charcoal",
-        year: 2024,
-        imageUrl: "https://images.unsplash.com/photo-1577720580479-7948dd2ba8fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
-        featured: false
-      },
-      {
-        title: "Emergence",
-        description: "Ink on canvas",
-        medium: "Ink",
-        year: 2024,
-        imageUrl: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
-        featured: false
+        imageUrl: "/assets/1CD865CC-676B-45A1-92C2-563AEA19D704_1751908631020.jpeg",
+        featured: true
       }
     ];
 
@@ -110,7 +86,11 @@ export class MemStorage implements IStorage {
 
   async createArtwork(insertArtwork: InsertArtwork): Promise<Artwork> {
     const id = this.currentArtworkId++;
-    const artwork: Artwork = { ...insertArtwork, id };
+    const artwork: Artwork = { 
+      ...insertArtwork, 
+      id,
+      featured: insertArtwork.featured ?? false
+    };
     this.artworks.set(id, artwork);
     return artwork;
   }

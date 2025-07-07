@@ -1,8 +1,8 @@
-# Abstract Art Portfolio Application
+# The Elements Art Portfolio Application
 
 ## Overview
 
-This is a full-stack web application built for showcasing abstract art in a minimalist, elegant portfolio format. The application features a modern React frontend with shadcn/ui components and an Express.js backend, designed to present artwork in a clean, artistic interface.
+This is a full-stack web application built for "The Elements Art" - a Vienna-based abstract art portfolio. The application features a modern React frontend with shadcn/ui components and an Express.js backend, designed to present artwork in a clean, minimalist black and white aesthetic. The site showcases the artist's philosophy of space, balance, simplicity, and presence through abstract compositions.
 
 ## System Architecture
 
@@ -30,9 +30,9 @@ This is a full-stack web application built for showcasing abstract art in a mini
 ## Key Components
 
 ### Frontend Components
-- **Hero Section**: Immersive landing area with mystical keywords and call-to-action
-- **Gallery**: Grid-based artwork display with lightbox functionality
-- **About Section**: Artist biography and philosophy presentation
+- **Hero Section**: Immersive landing area with philosophy-based keywords and Vienna location
+- **Gallery**: Grid-based artwork display with lightbox functionality showcasing actual artist paintings
+- **Philosophy Section**: Detailed presentation of artist's philosophy (Space, Balance, Simplicity, Presence)
 - **Contact Form**: Validated form with toast notifications
 - **Navigation**: Responsive navigation with smooth scrolling
 - **Lightbox**: Modal image viewer with keyboard navigation
@@ -103,10 +103,19 @@ This is a full-stack web application built for showcasing abstract art in a mini
 ```
 Changelog:
 - July 07, 2025. Initial setup
+- July 07, 2025. Updated for "The Elements Art" brand with:
+  - Artist's actual paintings from Vienna
+  - Philosophy-based content (Space, Balance, Simplicity, Presence)
+  - Black and white minimalist aesthetic
+  - Vienna location integration
+  - Static asset serving for uploaded artwork images
 ```
 
 ## User Preferences
 
 ```
 Preferred communication style: Simple, everyday language.
+Brand: The Elements Art
+Location: Vienna, Austria
+Philosophy: Space, Balance, Freedom in openness, Simplicity, Presence
 ```

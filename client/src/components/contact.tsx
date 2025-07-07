@@ -60,8 +60,7 @@ export default function Contact() {
           <div className="text-center space-y-4">
             <p className="text-lg">For inquiries about commissioned work or exhibitions</p>
             <div className="space-y-2">
-              <p className="text-gray-600">hello@abstractexpressions.com</p>
-              <p className="text-gray-600">+1 (555) 123-4567</p>
+              <p className="text-gray-600">Vienna, Austria</p>
             </div>
           </div>
           

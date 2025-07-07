@@ -44,7 +44,7 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center">
             <p className="text-gray-600 text-sm">
-              © 2024 Abstract Expressions. All rights reserved.
+              © 2024 The Elements Art. All rights reserved.
             </p>
           </div>
         </div>

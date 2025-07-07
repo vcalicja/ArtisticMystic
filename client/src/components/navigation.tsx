@@ -10,7 +10,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center">
           <div className="text-xl font-semibold">
             <a href="#home" className="hover:opacity-70 transition-opacity">
-              PORTFOLIO
+              THE ELEMENTS ART
             </a>
           </div>
           
@@ -19,7 +19,7 @@ export default function Navigation() {
               Gallery
             </a>
             <a href="#about" className="hover:opacity-70 transition-opacity">
-              About
+              Philosophy
             </a>
             <a href="#contact" className="hover:opacity-70 transition-opacity">
               Contact
@@ -52,7 +52,7 @@ export default function Navigation() {
                 className="hover:opacity-70 transition-opacity"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                About
+                Philosophy
               </a>
               <a 
                 href="#contact" 
