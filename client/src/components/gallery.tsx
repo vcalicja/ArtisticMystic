@@ -95,7 +95,7 @@ export default function Gallery() {
             <img 
               src={selectedArtwork.imageUrl} 
               alt={selectedArtwork.title}
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-[90vh] object-contain"
             />
             <div className="absolute bottom-4 left-4 text-white">
               <h3 className="text-xl font-medium">{selectedArtwork.title}</h3>

@@ -10,7 +10,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/assets/copy_FBAC72AC-E0DA-4925-956D-30CCD324274D_1751914658018.MOV" type="video/mp4" />
+          <source src="/assets/Video Project_1751915436061.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Dark overlay for text readability */}
