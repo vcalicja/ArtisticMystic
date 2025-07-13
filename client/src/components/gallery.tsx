@@ -14,6 +14,8 @@ export default function Gallery() {
   },
 });
 
+const artworks: Artwork[] = config?.artworks || [];
+
   if (isLoading) {
     return (
       <section id="gallery" className="py-20 md:py-32 px-6">
