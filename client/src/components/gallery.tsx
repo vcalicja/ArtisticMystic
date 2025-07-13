@@ -12,53 +12,46 @@ type Artwork = {
   featured: boolean;
 };
 
-type SiteContent = {
-  artworks: Artwork[];
-};
-
 export default function Gallery() {
-  const { data: config, isLoading, error } = useQuery<SiteContent>({
+  const { data: config, isLoading, error } = useQuery({
     queryKey: ["site-content"],
     queryFn: async () => {
       const res = await fetch("/content/config.json");
-      if (!res.ok) {
-        throw new Error("Failed to load config.json");
-      }
+      if (!res.ok) throw new Error("Failed to load config.json");
       return res.json();
     },
   });
 
-  const artworks = config?.artworks || [];
+  const artworks: Artwork[] = config?.artworks || [];
 
   if (isLoading) return <p>Loading gallery...</p>;
   if (error) return <p>Failed to load gallery. Please try again later.</p>;
 
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
-      {artworks.map((art) => (
-        <div
-          key={art.id}
-          className="border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-white"
-        >
-          <img
-            src={art.imageUrl}
-            alt={art.title}
-            className="w-full h-64 object-cover"
-          />
-          <div className="p-4">
-            <h3 className="text-xl font-semibold mb-1">{art.title}</h3>
-            <p className="text-sm text-gray-600">
-              {art.medium} • {art.year}
-            </p>
-            <p className="text-sm mt-2">{art.description}</p>
-            {art.available ? (
-              <p className="mt-2 text-green-600 font-medium">Available</p>
-            ) : (
-              <p className="mt-2 text-red-500 font-medium">Sold</p>
-            )}
+    <section>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 py-8">
+        {artworks.map((artwork) => (
+          <div key={artwork.id} className="group relative">
+            <img
+              src={artwork.imageUrl}
+              alt={artwork.title}
+              className="w-full h-auto object-cover rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="mt-2">
+              <h3 className="text-lg font-semibold">{artwork.title}</h3>
+              <p className="text-sm text-gray-500">
+                {artwork.medium}, {artwork.year}
+              </p>
+              <p className="text-sm mt-1">{artwork.description}</p>
+              {artwork.available ? (
+                <p className="text-sm mt-1">Available</p>
+              ) : (
+                <p className="text-sm mt-1">Sold</p>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 }
