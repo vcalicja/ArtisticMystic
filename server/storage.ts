@@ -45,7 +45,7 @@ export class MemStorage implements IStorage {
       },
       {
         title: "WATER + EARTH",
-        description: "Mixed technique, sold",
+        description: "SOLD",
         medium: "Mixed technique",
         year: 2024,
         imageUrl: "/assets/2675AF41-D9ED-4CA2-BE6B-6BCCCC67B3F2_1751915436060.png",
