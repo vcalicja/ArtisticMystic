@@ -94,16 +94,3 @@ function getDefaultConfig(): SiteConfig {
     ]
   };
 }
-
-// Utility functions for content management
-export function getArtworkStatus(artwork: ArtworkConfig): string {
-  return artwork.available ? 'Available for sale' : 'SOLD';
-}
-
-export function getFeaturedArtworks(artworks: ArtworkConfig[]): ArtworkConfig[] {
-  return artworks.filter(artwork => artwork.featured);
-}
-
-export function getAvailableArtworks(artworks: ArtworkConfig[]): ArtworkConfig[] {
-  return artworks.filter(artwork => artwork.available);
-}
