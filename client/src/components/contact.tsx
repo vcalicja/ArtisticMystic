@@ -1,120 +1,75 @@
-import { useForm, Controller } from "react-hook-form";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-
-type ContactFormValues = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
-
 export default function Contact() {
-  const { handleSubmit, control, reset } = useForm<ContactFormValues>({
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = () => {
-    reset(); // Netlify handles sending
-  };
-
   return (
-    <section id="contact" className="py-20 md:py-32 px-6">
-      <div className="container mx-auto max-w-2xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-light mb-4">Contact</h2>
-        </div>
+    <section id="contact" className="py-20 md:py-32 px-6 bg-white">
+      <div className="container mx-auto max-w-2xl text-center">
+        <h2 className="text-3xl md:text-4xl font-light mb-8">Contact</h2>
+        <p className="mb-8 text-lg">For commissions, inquiries, or exhibitions</p>
 
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <p className="text-lg">For inquiries about commissioned work or exhibitions</p>
-            <div className="space-y-2">
-              <p className="text-gray-600">theelementsart@gmail.com</p>
-              <p className="text-gray-600">Vienna, Austria</p>
+        <form 
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          className="space-y-6 text-left"
+        >
+          {/* Required hidden inputs for Netlify */}
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-gray-700 mb-2">Name</label>
+              <input 
+                type="text" 
+                name="name" 
+                required 
+                className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Email</label>
+              <input 
+                type="email" 
+                name="email" 
+                required 
+                className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors"
+              />
             </div>
           </div>
 
-          <Form>
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              onSubmit={handleSubmit(onSubmit)}
-              className="space-y-6"
+          <div>
+            <label className="block text-gray-700 mb-2">Subject</label>
+            <input 
+              type="text" 
+              name="subject" 
+              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 mb-2">Message</label>
+            <textarea 
+              name="message" 
+              rows={6} 
+              required 
+              className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors resize-vertical"
+            />
+          </div>
+
+          <div className="text-center">
+            <button 
+              type="submit" 
+              className="px-8 py-3 border-2 border-black bg-transparent text-black text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300"
             >
-              <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" />
+              Send Message
+            </button>
+          </div>
+        </form>
 
-              <FormField
-                control={control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input placeholder="Name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input type="email" placeholder="Email" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={control}
-                name="subject"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Input placeholder="Subject" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Textarea placeholder="Message" rows={6} {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <div className="text-center">
-                <Button
-                  type="submit"
-                  className="border-2 border-black bg-transparent text-black px-8 py-3 text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300"
-                >
-                  Send Message
-                </Button>
-              </div>
-            </form>
-          </Form>
+        {/* Optional: Contact info */}
+        <div className="mt-12 space-y-2 text-gray-600 text-sm text-center">
+          <p>Email: theelementsart@gmail.com</p>
+          <p>Location: Vienna, Austria</p>
         </div>
       </div>
     </section>
