@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,11 +12,17 @@ type ContactFormValues = {
 };
 
 export default function Contact() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>();
+  const { handleSubmit, control, reset } = useForm<ContactFormValues>({
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
 
-  const onSubmit = (data: ContactFormValues) => {
-    // Netlify handles submission automatically
-    reset();
+  const onSubmit = () => {
+    reset(); // Netlify handles sending
   };
 
   return (
@@ -44,82 +50,66 @@ export default function Contact() {
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-6"
             >
-              {/* Hidden fields for Netlify */}
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
 
-              {/* Name */}
               <FormField
-                control={undefined} // Not needed here
+                control={control}
                 name="name"
-                render={() => (
+                render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input
-                        {...register("name", { required: "Name is required" })}
-                        placeholder="Name"
-                      />
+                      <Input placeholder="Name" {...field} />
                     </FormControl>
-                    <FormMessage>{errors.name?.message}</FormMessage>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
 
-              {/* Email */}
               <FormField
-                control={undefined}
+                control={control}
                 name="email"
-                render={() => (
+                render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input
-                        type="email"
-                        {...register("email", { required: "Email is required" })}
-                        placeholder="Email"
-                      />
+                      <Input type="email" placeholder="Email" {...field} />
                     </FormControl>
-                    <FormMessage>{errors.email?.message}</FormMessage>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
 
-              {/* Subject */}
               <FormField
-                control={undefined}
+                control={control}
                 name="subject"
-                render={() => (
+                render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Input
-                        {...register("subject")}
-                        placeholder="Subject"
-                      />
+                      <Input placeholder="Subject" {...field} />
                     </FormControl>
-                    <FormMessage>{errors.subject?.message}</FormMessage>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
 
-              {/* Message */}
               <FormField
-                control={undefined}
+                control={control}
                 name="message"
-                render={() => (
+                render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Textarea
-                        {...register("message", { required: "Message is required" })}
-                        placeholder="Message"
-                        rows={6}
-                      />
+                      <Textarea placeholder="Message" rows={6} {...field} />
                     </FormControl>
-                    <FormMessage>{errors.message?.message}</FormMessage>
+                    <FormMessage />
                   </FormItem>
                 )}
               />
 
               <div className="text-center">
-                <Button type="submit" className="border-2 border-black bg-transparent text-black px-8 py-3 text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300">
+                <Button
+                  type="submit"
+                  className="border-2 border-black bg-transparent text-black px-8 py-3 text-sm uppercase tracking-wider hover:bg-black hover:text-white transition-all duration-300"
+                >
                   Send Message
                 </Button>
               </div>
