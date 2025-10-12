@@ -46,7 +46,9 @@ export default function Gallery() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-light mb-4">Gallery</h2>
-            <p className="text-red-600">Failed to load gallery. Please try again later.</p>
+            <p className="text-red-600">
+              Failed to load gallery. Please try again later.
+            </p>
           </div>
         </div>
       </section>
@@ -54,58 +56,63 @@ export default function Gallery() {
   }
 
   return (
-    <section id="gallery" className="py-20 md:py-32 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-light mb-4">Gallery</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {artworks?.map((artwork) => (
-            <div 
-              key={artwork.id}
-              className="gallery-item cursor-pointer"
-              onClick={() => setSelectedArtwork(artwork)}
-            >
-              <div className="bg-gray-100 overflow-hidden">
-                <img 
-                  src={artwork.imageUrl} 
-                  alt={artwork.title}
-                  className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
-                />
+    <>
+      <section id="gallery" className="py-20 md:py-32 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light mb-4">Gallery</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {artworks?.map((artwork) => (
+              <div
+                key={artwork.id}
+                className="gallery-item cursor-pointer"
+                onClick={() => setSelectedArtwork(artwork)}
+              >
+                <div className="bg-gray-100 overflow-hidden">
+                  <img
+                    src={artwork.imageUrl}
+                    alt={artwork.title}
+                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="mt-4">
+                  <h3 className="font-medium text-lg">{artwork.title}</h3>
+                  <p className="text-gray-600 text-sm mt-1">
+                    {artwork.medium}, {artwork.year}
+                  </p>
+                  <p className="text-gray-500 text-sm mt-1">
+                    {artwork.description}
+                  </p>
+                </div>
               </div>
-              <div className="mt-4">
-                <h3 className="font-medium text-lg">{artwork.title}</h3>
-                <p className="text-gray-600 text-sm mt-1">
-                  {artwork.medium}, {artwork.year}
-                </p>
-                <p className="text-gray-500 text-sm mt-1">
-                  {artwork.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Lightbox */}
       {selectedArtwork && (
-  <div 
-    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 cursor-zoom-out"
-    onClick={() => setSelectedArtwork(null)}
-  >
-    <button 
-      onClick={() => setSelectedArtwork(null)}
-      className="absolute top-6 right-8 text-white text-4xl font-light hover:opacity-70 transition-opacity duration-300 z-10"
-    >
-      ×
-    </button>
-    
-    <img 
-      src={selectedArtwork.imageUrl} 
-      alt={selectedArtwork.title}
-      className="max-w-[95vw] max-h-[95vh] w-auto h-auto object-contain shadow-2xl transition-transform duration-300"
-      onClick={(e) => e.stopPropagation()}
-    />
-  </div>
-)}
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 cursor-zoom-out"
+          onClick={() => setSelectedArtwork(null)}
+        >
+          <button
+            onClick={() => setSelectedArtwork(null)}
+            className="absolute top-6 right-8 text-white text-4xl font-light hover:opacity-70 transition-opacity duration-300 z-10"
+          >
+            ×
+          </button>
+
+          <img
+            src={selectedArtwork.imageUrl}
+            alt={selectedArtwork.title}
+            className="max-w-[95vw] max-h-[95vh] w-auto h-auto object-contain shadow-2xl transition-transform duration-300"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
+  );
+}
