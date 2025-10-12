@@ -5,16 +5,16 @@ import { useState } from "react";
 export default function Gallery() {
   const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
 
- const { data: config, isLoading, error } = useQuery({
-  queryKey: ["site-content"],
-  queryFn: async () => {
-    const res = await fetch("/content/config.json");
-    if (!res.ok) throw new Error("Failed to load config.json");
-    return res.json();
-  },
-});
+  const { data: config, isLoading, error } = useQuery({
+    queryKey: ["site-content"],
+    queryFn: async () => {
+      const res = await fetch("/content/config.json");
+      if (!res.ok) throw new Error("Failed to load config.json");
+      return res.json();
+    },
+  });
 
-const artworks: Artwork[] = config?.artworks || [];
+  const artworks: Artwork[] = config?.artworks || [];
 
   if (isLoading) {
     return (
@@ -80,7 +80,7 @@ const artworks: Artwork[] = config?.artworks || [];
                   {artwork.medium}, {artwork.year}
                 </p>
                 <p className="text-gray-500 text-sm mt-1">
-                  {artwork.description.includes('sold') ? 'SOLD' : 'Available for sale'}
+                  {artwork.description}
                 </p>
               </div>
             </div>
