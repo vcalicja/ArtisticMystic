@@ -88,32 +88,24 @@ export default function Gallery() {
         </div>
       </div>
 
-     {/* Lightbox */}
+      {/* Lightbox */}
       {selectedArtwork && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{
-            backdropFilter: 'blur(20px)',
-            backgroundColor: 'rgba(255, 255, 255, 0.1)'
-          }}
-          onClick={() => setSelectedArtwork(null)}
-        >
-          <div className="relative max-w-5xl max-h-full">
-            <button 
-              onClick={() => setSelectedArtwork(null)}
-              className="absolute top-4 right-4 text-white text-3xl hover:opacity-70 transition-all duration-300 z-10"
-            >
-              ×
-            </button>
-            <img 
-              src={selectedArtwork.imageUrl} 
-              alt={selectedArtwork.title}
-              className="max-w-full max-h-[90vh] object-contain shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
-        </div>
-      )}
-    </section>
-  );
-}
+  <div 
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 cursor-zoom-out"
+    onClick={() => setSelectedArtwork(null)}
+  >
+    <button 
+      onClick={() => setSelectedArtwork(null)}
+      className="absolute top-6 right-8 text-white text-4xl font-light hover:opacity-70 transition-opacity duration-300 z-10"
+    >
+      ×
+    </button>
+    
+    <img 
+      src={selectedArtwork.imageUrl} 
+      alt={selectedArtwork.title}
+      className="max-w-[95vw] max-h-[95vh] w-auto h-auto object-contain shadow-2xl transition-transform duration-300"
+      onClick={(e) => e.stopPropagation()}
+    />
+  </div>
+)}
