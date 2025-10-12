@@ -4,12 +4,12 @@ export default function Contact() {
       <div className="container mx-auto max-w-2xl text-center">
         <h2 className="text-3xl md:text-4xl font-light mb-6">Contact</h2>
         <p className="text-lg mb-4">
-          For commissions, inquiries, or exhibitions contact us at:
+          For commissions, inquiries, or exhibitions contact at:
         </p>
         <div className="space-y-2">
           <p className="text-gray-700">theelementsart@gmail.com</p>
-          <p className="text-gray-700">Vienna, Austria</p>
           <p className="text-gray-700">Instagram: @theelements.art</p>
+          <p className="text-gray-700">Vienna, Austria</p>
         </div>
         <div className="mt-6">
           <a
