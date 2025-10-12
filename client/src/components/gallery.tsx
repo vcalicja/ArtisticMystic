@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { type Artwork } from "@shared/schema";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Gallery() {
-  const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const { data: config, isLoading, error } = useQuery({
     queryKey: ["site-content"],
@@ -15,6 +15,24 @@ export default function Gallery() {
   });
 
   const artworks: Artwork[] = config?.artworks || [];
+
+  // Handle keyboard arrows (←, →, Esc)
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === "Escape") setSelectedIndex(null);
+      if (e.key === "ArrowRight")
+        setSelectedIndex((prev) =>
+          prev === artworks.length - 1 ? 0 : (prev ?? 0) + 1
+        );
+      if (e.key === "ArrowLeft")
+        setSelectedIndex((prev) =>
+          prev === 0 ? artworks.length - 1 : (prev ?? 0) - 1
+        );
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [selectedIndex, artworks.length]);
 
   if (isLoading) {
     return (
@@ -55,6 +73,9 @@ export default function Gallery() {
     );
   }
 
+  const selectedArtwork =
+    selectedIndex !== null ? artworks[selectedIndex] : null;
+
   return (
     <section id="gallery" className="py-20 md:py-32 px-6">
       <div className="container mx-auto max-w-6xl">
@@ -63,11 +84,11 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {artworks?.map((artwork) => (
+          {artworks.map((artwork, index) => (
             <div
               key={artwork.id}
               className="gallery-item cursor-pointer"
-              onClick={() => setSelectedArtwork(artwork)}
+              onClick={() => setSelectedIndex(index)}
             >
               <div className="bg-gray-100 overflow-hidden">
                 <img
@@ -94,24 +115,52 @@ export default function Gallery() {
       {selectedArtwork && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 cursor-zoom-out transition-opacity duration-500"
-          onClick={() => setSelectedArtwork(null)}
+          onClick={() => setSelectedIndex(null)}
         >
           <button
-            onClick={() => setSelectedArtwork(null)}
+            onClick={() => setSelectedIndex(null)}
             className="absolute top-6 right-8 text-white text-4xl font-light hover:opacity-70 transition-opacity duration-300 z-10"
           >
             ×
           </button>
 
+          {/* Left Arrow */}
+          <button
+            className="absolute left-6 text-white text-5xl font-thin hover:opacity-70 z-10 select-none"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedIndex(
+                selectedIndex === 0 ? artworks.length - 1 : selectedIndex - 1
+              );
+            }}
+          >
+            ‹
+          </button>
+
+          {/* Image */}
           <div className="relative w-screen h-screen flex items-center justify-center">
             <img
               src={selectedArtwork.imageUrl}
               alt={selectedArtwork.title}
-              className="w-full h-full object-contain transform scale-100 hover:scale-105 transition-transform duration-700 ease-in-out"
+              className="w-full h-full object-contain transition-transform duration-700 ease-in-out"
               onClick={(e) => e.stopPropagation()}
             />
           </div>
 
+          {/* Right Arrow */}
+          <button
+            className="absolute right-6 text-white text-5xl font-thin hover:opacity-70 z-10 select-none"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedIndex(
+                selectedIndex === artworks.length - 1 ? 0 : selectedIndex + 1
+              );
+            }}
+          >
+            ›
+          </button>
+
+          {/* Caption */}
           <div className="absolute bottom-10 left-0 right-0 text-center text-white/80 text-sm tracking-wide">
             {selectedArtwork.title && (
               <p className="font-light">{selectedArtwork.title}</p>
