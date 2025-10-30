@@ -19,7 +19,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={config?.hero.videoUrl || "/assets/copy_B4884CD8-D43E-43AB-8C78-2C57D89A0638.mov"} type="video/mmov" />
+          <source src={config?.hero.videoUrl || "/assets/copy_B4884CD8-D43E-43AB-8C78-2C57D89A0638.mov"} type="video/mov" />
           Your browser does not support the video tag.
         </video>
         {/* Dark overlay for text readability */}
