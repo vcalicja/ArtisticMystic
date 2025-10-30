@@ -57,7 +57,7 @@ function getDefaultConfig(): SiteConfig {
       }
     },
     hero: {
-      text: "Abstract art is about what it makes you feel",
+      text: "Abstract art is about what it makes you feel.",
       videoUrl: "/attached_assets/hero.mp4"
     },
     artworks: [
