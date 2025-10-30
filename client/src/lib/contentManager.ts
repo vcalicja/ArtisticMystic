@@ -58,7 +58,7 @@ function getDefaultConfig(): SiteConfig {
     },
     hero: {
        "text": "Abstract art comes from what it inspires within you.",
-    "videoUrl": "/assets/hero.mp4"
+       "videoUrl": "/attched_assets/hero.mp4"
     },
     artworks: [
       {
