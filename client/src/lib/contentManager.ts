@@ -57,8 +57,8 @@ function getDefaultConfig(): SiteConfig {
       }
     },
     hero: {
-      text: "Abstract art is about what it makes you feel.",
-      videoUrl: "/attached_assets/hero.mp4"
+      text: "Abstract art comes from what it inspires within you- your feelings, thoughts, and personal response. The space between the artwork and your experience is where the art truly lives.",
+      videoUrl: "/attached_assets/Video Project_1751915436061.mp4"
     },
     artworks: [
       {
