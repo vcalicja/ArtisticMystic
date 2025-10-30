@@ -68,7 +68,6 @@ function getDefaultConfig(): SiteConfig {
         year: 2025,
         description: "Available for sale",
         imageUrl: "/attached_assets/D5FD6A96-D987-444B-9AAB-0E4738A82DEF_1751908631020.jpeg",
-        available: true,
         featured: true
       },
       {
@@ -78,7 +77,6 @@ function getDefaultConfig(): SiteConfig {
         year: 2025,
         description: "Available for sale",
         imageUrl: "/attached_assets/1CD865CC-676B-45A1-92C2-563AEA19D704_1751908631020.jpeg",
-        available: true,
         featured: true
       },
       {
@@ -88,7 +86,6 @@ function getDefaultConfig(): SiteConfig {
         year: 2024,
         description: "SOLD",
         imageUrl: "/attached_assets/2675AF41-D9ED-4CA2-BE6B-6BCCCC67B3F2_1751915436060.png",
-        available: false,
         featured: true
       }
     ]
