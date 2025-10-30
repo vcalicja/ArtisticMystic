@@ -1,4 +1,4 @@
-{
+ro{
   "site": {
     "title": "The Elements Art",
     "description": "Abstract art portfolio by The Elements Art, Vienna, Austria",
@@ -10,7 +10,7 @@
   },
   "hero": {
     "text": "Abstract art is about what it makes you feel",
-    "videoUrl": "/assets/copy_B4884CD8-D43E-43AB-8C78-2C57D89A0638.mov"
+    "videoUrl": "/assets/hero.mov"
   },
   "artworks": [
     {
