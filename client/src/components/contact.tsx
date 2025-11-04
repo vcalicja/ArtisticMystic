@@ -8,7 +8,6 @@ export default function Contact() {
         <div className="space-y-2">
           <p className="text-gray-700">theelementsart@gmail.com</p>
           <p className="text-gray-700">Instagram: @theelements.art</p>
-          <p className="text-gray-700">Vienna, Austria</p>
         </div>
         <div className="mt-6">
           <a
